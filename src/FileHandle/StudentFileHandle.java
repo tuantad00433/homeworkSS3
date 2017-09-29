@@ -32,11 +32,7 @@ public class StudentFileHandle {
         System.out.println("==================================================");
         System.out.println("The Student List will be saved in StudentList.txt");
         System.out.println("==================================================");
-          try {
-            FileWriter fw = new FileWriter("StudentList.txt");
-        } catch (IOException e) {
-              System.out.println(e);
-        }
+       
         
 
 //Use Try-with-resource instead of using finally block.

@@ -7,8 +7,12 @@ package swing;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,28 +32,8 @@ public class HomeWork {
     public static void main(String[] args) {
         SwingApp app = new SwingApp();
         app.fr.setVisible(true);
-        
-//        JFrame mainFrame = new JFrame("Grid");
-//        mainFrame.setSize(400, 400);
-//        mainFrame.setLocationRelativeTo(null);
-//        mainFrame.setLayout(new GridBagLayout());
-//        JButton btn1 = new JButton("Button 1");
-//        JButton btn2 = new JButton("Button 2");
-//        JButton btn3 = new JButton("Button 3");
-//        GridBagConstraints gbc = new GridBagConstraints();
-//        gbc.gridx = 0;
-//        gbc.gridy = 0;
-//        
-//        gbc.gridwidth = 6;
-//        mainFrame.add(btn1, gbc);
-//        gbc.gridx = 5;
-//        gbc.gridy = 0;
-//       
-//       
-//        mainFrame.add(btn2,gbc);
-//        
-//        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        mainFrame.setVisible(true);
+     
+
 
     }
 

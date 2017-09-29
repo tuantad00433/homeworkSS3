@@ -27,7 +27,7 @@ public class StudentModel {
     private static final String URL = "jdbc:mysql://localhost:3306/liststudent?useSSL=false&useUnicode=yes&characterEncoding =UTF-8";
 
     //Get the student list by return a ResultSet/ Use PreparedStatement.
-    public ArrayList getList() {
+    public ArrayList<Student> getList() {
         ArrayList<Student> listStudent = new ArrayList<>();
         ResultSet rs = null;
         PreparedStatement stm = null;
