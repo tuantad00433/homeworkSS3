@@ -68,16 +68,17 @@ import javax.swing.text.MaskFormatter;
 public class SwingApp {
 
     private JLabel lblId, lblName, lblEmail, lblPhone, lblClass, lblRollNum, lblDob, lblTotalMsg, lblNameMsg, lblMailMsg, lblClock;
-    private JButton button, submitBtn, button2;
+    private JButton button, submitBtn, button2,p3Button;
     private JTextField txtId, txtPhone;
     private JSpinner txtDob;
-    private JTextField txtName, txtEmail, txtClass, txtRollNum;
-    private JPanel pane1, pane2, pane;
+    private JTextField txtName, txtEmail, txtClass, txtRollNum,p3txtField;
+    private JTextArea p3TxtArea;
+    private JPanel pane1, pane2, pane, pane3;
     private JScrollPane scrList;
     private JTable tblList;
     private JMenuBar mnBar;
-    private JMenu mnManager, mnClock, mnAbout;
-    private JMenuItem  mnClock2;
+    private JMenu mnManager, mnClock, mnAbout, mnLang;
+    private JMenuItem mnClock2, mnManager1, mnLang1, mnLang2, mnLang3;
     private JCheckBoxMenuItem mnClock1;
     JProgressBar pBar;
     JFrame fr;
@@ -219,9 +220,23 @@ public class SwingApp {
         this.pane1.add(this.submitBtn);
 
         lblTotalMsg.setBounds(150, 25, 200, 25);
+        pane.setSize(600, 600);
         this.pane1.add(this.lblTotalMsg);
         this.pane.add(pane1, "pane1");
         this.pane.add(pane2, "pane2");
+
+//        Tạo Pane 3.
+        pane3 = new JPanel(null);
+        p3Button = new JButton("Button");
+        p3TxtArea = new JTextArea();
+        p3txtField = new JTextField();
+        p3TxtArea.setBounds(25, 25, 500, 420);
+        pane3.add(p3TxtArea);
+        p3txtField.setBounds(25, 480, 300, 50);
+        pane3.add(p3txtField);
+        p3Button.setBounds(330, 480, 200, 50);
+        pane3.add(p3Button);
+        pane.add(pane3,"pane3");
         this.fr.add(pane);
 //        Tạo JMenuBar
         mnBar = new JMenuBar();
@@ -231,6 +246,17 @@ public class SwingApp {
         mnClock1 = new JCheckBoxMenuItem("Khởi chạy");
         mnClock1.addItemListener(new StartClock());
         mnClock2 = new JMenuItem("Tìm hiểu");
+        mnManager1 = new JMenuItem("Kết nối server");
+        mnManager1.addActionListener(new switchToPane3());
+        mnLang = new JMenu("Ngôn ngữ");
+        mnLang1 = new JMenuItem("Tiếng Việt");
+        mnLang2 = new JMenuItem("Tiếng Anh");
+        mnLang3 = new JMenuItem("Tiếng Nhật");
+        mnLang.add(mnLang1);
+        mnLang.add(mnLang2);
+        mnLang.add(mnLang3);
+        mnManager.add(mnManager1);
+        mnManager.add(mnLang);
         mnClock.add(mnClock1);
         mnClock.add(mnClock2);
         mnBar.add(mnManager);
@@ -240,9 +266,6 @@ public class SwingApp {
         mnBar.add(lblClock);
         fr.setJMenuBar(mnBar);
 
-        //Tạo và thêm đồng hồ
-//        Timer timer = new Timer(1000, new Clock());
-//        timer.start();
         //Xu ly khi tat
         this.fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //ProgressBar
@@ -397,6 +420,15 @@ public class SwingApp {
         public void actionPerformed(ActionEvent e) {
             CardLayout cl = (CardLayout) pane.getLayout();
             cl.show(pane, "pane1");
+        }
+
+    }
+    class switchToPane3 implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            CardLayout cl = (CardLayout) pane.getLayout();
+            cl.show(pane, "pane3");
         }
 
     }
